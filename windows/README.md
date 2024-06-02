@@ -31,3 +31,9 @@ Set-Service WinRM -StartMode Automatic
 ``` powershell
 New-Item -Path WSMan:\localhost\Listener -Transport HTTP -Address * -Force
 ```
+
+## Run the playbook
+
+``` powershell
+ansible-playbook -i <host file> <playbook name>
+```
