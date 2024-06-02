@@ -1,0 +1,7 @@
+---
+- name: Update all packages using winget
+  hosts: windows
+  tasks:
+    - name: Run winget update
+      win_shell: winget update --all --include-unknown --accept-package-agreements
+

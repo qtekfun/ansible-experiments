@@ -1,0 +1,21 @@
+---
+- name: Verify and update Windows server
+  hosts: windows
+  tasks:
+    - name: Check for Windows updates
+      win_updates:
+        category_names: ['CriticalUpdates', 'SecurityUpdates']
+        state: searched
+      register: update_info
+
+    - name: Install Windows updates
+      win_updates:
+        category_names: ['CriticalUpdates', 'SecurityUpdates']
+        state: installed
+      when: update_info.updates | length > 0
+
+    - name: Reboot the server if necessary
+      win_reboot:
+      when: update_info.reboot_required
+
+

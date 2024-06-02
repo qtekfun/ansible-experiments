@@ -1,0 +1,7 @@
+---
+- name: Install Adobe Acrobat Reader using winget
+  hosts: windows
+  tasks:
+    - name: Install Adobe Acrobat Reader
+      win_shell: winget install --id Adobe.Acrobat.Reader.64-bit --accept-package-agreements --accept-source-agreements
+
