@@ -1,0 +1,1 @@
+no_proxy="*" ansible -i ./hosts all -m win_ping
